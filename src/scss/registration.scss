@@ -1,0 +1,129 @@
+@import 'variables';
+@import 'mixin';
+
+.registration {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    padding-bottom: 50px;
+    margin: 0 auto;
+
+    &__completed {
+        display: none;
+        padding-top: 50px;
+        font-size: $title-18px;
+        color: $color-dark-gray;
+        text-align: center;
+
+        a {
+            font-size: $text-14px;
+            color: $color-maroon;
+            text-decoration: none;
+            border-bottom: 1px solid $color-maroon;
+
+            &:hover {
+                color: $color-blue;
+                border-bottom: 1px solid $color-blue;
+            }
+        }
+    }
+
+    &__form {
+        @include input(5px);
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        label,
+        h3 {
+            margin: 15px 0;
+            font-size: $title-16px;
+            font-weight: 400;
+            color: $color-maroon;
+        }
+    }
+
+    &__checkbox {
+        position: relative;
+        padding: 20px 0;
+
+        p {
+            font-size: $text-13px;
+        }
+
+        span {
+            padding-left: 25px;
+        }
+
+        input {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            width: 20px;
+            transform: scale(1.5);
+        }
+    }
+
+    &__rules {
+        color: $color-blue;
+    }
+
+    .registration-radio {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 15px;
+
+        h3 {
+            flex-basis: 100%;
+            text-align: center;
+        }
+
+        &__men,
+        &__women {
+            position: relative;
+            flex-basis: 20%;
+            margin: 15px auto 0 auto;
+        }
+
+        label {
+            color: $color-black;
+        }
+
+        input {
+            position: absolute;
+            top: 4px;
+            left: 40px;
+            width: 20px;
+            transform: scale(1.2);
+        }
+    }
+
+    .registration-btn {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            @include btn-basis(10px, 20px, 40%);
+        }
+
+        .btn-reg {
+            background: $bg-btn;
+
+            &:hover {
+                background: $color-btn-3;
+            }
+        }
+
+        .btn-disabled {
+            color: $color-black;
+            background: $bg-gray;
+
+            &:hover {
+                color: $color-black;
+                cursor: not-allowed;
+                background: $bg-gray;
+            }
+        }
+    }
+}

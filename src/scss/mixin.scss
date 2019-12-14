@@ -1,0 +1,177 @@
+@mixin body {
+    box-sizing: border-box;
+    max-width: $max-width;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+@mixin body-footer {
+    box-sizing: border-box;
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+// === transition ===
+
+@mixin trans-basis($trans-basis:all) {
+    transition: $trans-basis .3s linear;
+}
+
+// === / transition ===
+
+// === title ===
+
+@mixin title-24px($color-title-24px:$color-black) {
+    font-size: $title-24px;
+    color: $color-title-24px;
+}
+
+@mixin title-16px {
+    @include trans-basis;
+
+    font-size: $title-16px;
+    color: $color-black;
+
+    &:hover {
+        color: $color-maroon;
+        border-bottom: 1px solid $color-maroon;
+    }
+}
+
+// === / title ===
+
+// === text ===
+
+@mixin text-13px($color-text:$color-gray) {
+    font-size: $text-13px;
+    color: $color-text;
+}
+
+// === / text ===
+
+// === link ===
+
+@mixin link-13px ($color-link-13px:$color-dark-gray) {
+    font-size: $link-13px;
+    color: $color-link-13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+        color: $color-maroon;
+        border-bottom: 1px solid $color-maroon;
+    }
+}
+
+@mixin link-13px-2 {
+    a {
+        font-size: $link-13px;
+        color: $color-dark-gray;
+        text-decoration: none;
+    }
+}
+
+@mixin link-14px($color-link-14px:$color-dark-gray) {
+    font-size: $link-14px;
+    color: $color-link-14px;
+    text-decoration: none;
+}
+
+@mixin link-pa {
+    font-size: $link-13px;
+    color: $color-maroon;
+    text-decoration: none;
+    border-bottom: 1px solid $color-maroon;
+
+    &:hover {
+        color: $color-orange;
+        border-bottom: 1px solid $color-orange;
+    }
+}
+
+@mixin btn-basis($padding-t-b:0, $padding-l-r:0,$width-btn:40%) {
+    @include trans-basis(background);
+
+    width: $width-btn;
+    min-width: 55px;
+    min-height: 20px;
+    padding: $padding-t-b $padding-l-r;
+    font-size: $text-13px;
+    cursor: pointer;
+    background: $bg-gray;
+    border: 1px solid $bg-btn-2;
+    border-radius: 20px;
+    outline: none;
+
+    &:hover {
+        color: $color-white;
+        background: $bg-btn-2;
+    }
+}
+// === / link ===
+
+// === icon ===
+
+@mixin icon-svg($icon-width, $icon-height, $left-icon, $top-icon:0) {
+    position: relative;
+
+    > svg {
+        position: absolute;
+        top: $top-icon;
+        left: $left-icon;
+        width: $icon-width;
+        height: $icon-height;
+    }
+}
+
+@mixin icon-svg-2($icon-width, $icon-height, $left-icon, $top-icon:0) {
+    div {
+        position: relative;
+
+        svg {
+            position: absolute;
+            top: $top-icon;
+            left: $left-icon;
+            width: $icon-width;
+            height: $icon-height;
+        }
+    }
+}
+
+// === / icon ===
+
+// === input ===
+
+@mixin input($padding-input:3px) {
+    input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: $padding-input 10px $padding-input;
+        font-size: $text-13px;
+        border: 1px solid $color-dark-gray;
+        border-radius: 10px;
+        outline: none;
+
+        &:focus {
+            border: 1px solid $color-maroon;
+        }
+    }
+}
+
+// === / input ===
+
+@mixin price($price) {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        right: 0;
+        bottom: 15px;
+        padding: 3px 5px;
+        font-size: $title-24px;
+        color: $color-white;
+        content: $price;
+        background: $bg-dark-gray;
+        border-radius: 5px;
+    }
+}

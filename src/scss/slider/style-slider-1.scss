@@ -1,0 +1,162 @@
+@import 'slick';
+@import 'slick-theme';
+@import 'variables-slider';
+@import 'mixin';
+
+.slider-box-1 {
+    position: relative;
+    max-width: $max-width-sl;
+    height: 290px;
+    margin: auto;
+
+    .slider-1 {
+        position: absolute;
+        right: 0;
+        left: 0;
+
+        &__item {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            outline: none;
+        }
+
+        &__img {
+            flex-basis: 43%;
+            align-self: center;
+
+            img {
+                width: 100%;
+                padding-top: 15px;
+            }
+        }
+
+        .slider-1-info {
+            display: flex;
+            flex-basis: 44%;
+            flex-direction: column;
+
+            &__title {
+                @include title-24px;
+
+                padding-top: 15px;
+                margin: 0;
+                line-height: 1.2;
+            }
+
+            &__table {
+                width: 265px;
+                margin-top: 15px;
+                border-top: 1px solid $color-black;
+                border-bottom: 1px solid $color-black;
+            }
+
+            &__table-box {
+                @include text-13px($color-black);
+
+                display: flex;
+                justify-content: space-between;
+                padding: 15px 10px 13px;
+            }
+
+            &__property,
+            &__property-value {
+                display: flex;
+                flex-basis: 50%;
+                flex-direction: column;
+
+                span {
+                    padding: 2px 0;
+
+                    &:nth-child(2n+1) {
+                        background: $line-bg-table;
+                    }
+                }
+            }
+
+            &__box {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                button {
+                    @include price-btn;
+                }
+            }
+
+            &__price {
+                @include price;
+
+                flex-basis: 64%;
+                margin-top: 20px;
+            }
+        }
+
+        // === control ===
+
+        .slick-next {
+            right: $retreat-right-sl;
+        }
+
+        .slick-prev {
+            top: 51%;
+            left: $retreat-left-sl;
+            transform: matrix(1, 0, 0, 1, 0, -20) rotate(180deg);
+        }
+
+        .slick-next,
+        .slick-prev {
+            @include arrow;
+        }
+
+        .slick-dots {
+            top: $retreat-top-sl;
+            max-height: 20px;
+
+            li {
+                button {
+                    width: $width-dots-sl;
+                    height: $height-dots-sl;
+                    border: $border-dots-sl;
+                    border-radius: $border-radius-dots-sl;
+                    box-shadow: $shadow-basis-sl;
+                    transition: border $transition-speed-sl;
+
+                    &::before {
+                        top: 50%;
+                        left: 50%;
+                        width: $width-dots-circle-sl;
+                        height: $height-dots-circle-sl;
+                        margin: -5px -5px;
+                        content: "";
+                        background: $bg-dots-sl;
+                        border-radius: $border-radius-dots-sl;
+                        opacity: 1;
+                        transition: background $transition-speed-sl;
+                    }
+
+                    &:hover::before {
+                        background: $bg-dots-hover-sl;
+                    }
+
+                    &:hover {
+                        border: $border-dots-hover-sl;
+                    }
+                }
+
+                &.slick-active {
+                    button {
+                        border: $border-dots-hover-sl;
+
+                        &::before {
+                            background: $bg-dots-hover-sl;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === / slider 1 ===

@@ -1,0 +1,74 @@
+@mixin arrow {
+    z-index: 2;
+    width: $width-arrow-sl;
+    height: $height-arrow-sl;
+    background: url(../fonts/slider/arrow.svg);
+    background-size: 100%;
+    opacity: $opacity-arrow-sl;
+    transition: opacity $transition-speed-sl;
+
+    &:hover,
+    &:focus {
+        opacity: $opacity-arrow-hover-sl;
+    }
+
+    &::before {
+        content: ' ';
+    }
+}
+
+@mixin trans-basis($trans-basis:all) {
+    transition: $trans-basis .3s linear;
+}
+
+@mixin title-24px {
+    font-size: $title-24px;
+    color: $color-black;
+}
+
+@mixin text-13px($color-text:$color-grey) {
+    font-size: $text-13px;
+    color: $color-text;
+}
+
+@mixin price-btn {
+    @include trans-basis(background);
+
+    margin-top: 15px;
+    font-size: $text-13px;
+    color: $color-btn;
+    cursor: pointer;
+    background: $bg-btn-black;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+
+    &:hover {
+        background: $color-btn-hov;
+    }
+
+    span {
+        display: inline-block;
+        padding: 3px 0;
+
+        span {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+}
+
+@mixin price {
+    font-size: $text-18px;
+    color: $color-grey;
+
+    span:last-child {
+        font-size: $text-13px;
+    }
+
+    .slider-1-info__price-value {
+        margin: 0 5px;
+        font-size: $text-22px;
+        color: $color-black;
+    }
+}

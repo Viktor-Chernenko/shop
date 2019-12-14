@@ -1,0 +1,84 @@
+@import '../variables';
+
+.modal-window {
+    position: relative;
+
+    &__overlay,
+    &__overlay-basket {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, .5);
+    }
+
+    &__popup,
+    &__popup-basket {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        width: 400px;
+        padding: 40px;
+        color: $color-white;
+        background-color: $color-orange;
+        border-radius: 10px;
+        transform: translate(-50%, -50%);
+    }
+
+    &__basket-icon {
+        position: absolute;
+        right: 0;
+        bottom: 10%;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+    }
+
+    &__close-popup,
+    &__close-popup-basket {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 23px;
+        height: 23px;
+        cursor: pointer;
+
+        &::before {
+            position: absolute;
+            top: 11px;
+            left: -4px;
+            width: 31px;
+            height: 1px;
+            content: '';
+            background-color: #fff;
+            transform: rotate(-45deg);
+        }
+
+        &::after {
+            position: absolute;
+            top: 11px;
+            left: -4px;
+            width: 31px;
+            height: 1px;
+            content: '';
+            background-color: #fff;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal-window {
+        &__popup,
+        &__popup-basket {
+            width: 100%;
+            height: 200px;
+            font-size: 15px;
+        }
+    }
+}
