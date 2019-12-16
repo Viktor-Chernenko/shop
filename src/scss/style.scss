@@ -914,18 +914,16 @@ body {
 @media screen and (max-width: 800px) {
     .header {
         .header-nav {
-            .active {
-                display: block;
-            }
 
             &__list {
                 position: fixed;
-                top: 50px;
-                right: 20px;
+                top: 60px;
+                right: 0;
+                left: 0;
                 z-index: 100;
                 display: none;
                 flex-direction: column;
-                width: 70%;
+                width: 100%;
             }
 
             &__item {
@@ -941,13 +939,11 @@ body {
                 display: block;
                 width: 100%;
                 padding: 20px 0;
-                margin: 5px 0;
                 color: $color-black;
                 text-align: center;
                 background: $bg-nav-mobile;
                 border: 1px solid $bg-light-gray;
                 border-bottom: none;
-                border-radius: 30px;
             }
 
             &__link:hover {

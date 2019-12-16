@@ -97,7 +97,7 @@ $(function () {
 $(function () {
     var e = $(".header-nav-mobile");
     e.click(function () {
-        return e.toggleClass("active"), $(".header-nav__list").toggleClass("active"), !1
+        return e.toggleClass("active"), $(".header-nav__list").slideToggle(), !1
     })
 });
 
